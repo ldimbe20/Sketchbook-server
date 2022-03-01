@@ -1,0 +1,11 @@
+[
+    {"model": "arstagramapi.comment",
+     "pk": 1,
+         "fields": {
+         "post":1,
+         "author":1,
+         "content": "Try adding more white to the pink",
+         "created_on":"2020-01-12"
+     }
+     }
+ ]

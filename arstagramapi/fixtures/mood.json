@@ -1,0 +1,66 @@
+[
+    {"model": "arstagramapi.mood",
+     "pk": 1,
+         "fields": {
+         "mood_type":"Happy"
+     }
+     },
+     
+     {"model": "arstagramapi.mood",
+        "pk": 2,
+            "fields": {
+            "mood_type":"Sad"
+        }
+        },
+
+     {"model": "arstagramapi.mood",
+        "pk": 3,
+            "fields": {
+            "name":"Mad"
+        }
+        },
+
+     {"model": "arstagramapi.mood",
+        "pk": 4,
+            "fields": {
+            "name":"Frustrated"
+        }
+        },
+
+    {"model": "arstagramapi.mood",
+            "pk": 5,
+                "fields": {
+                "mood_type":"Excited"
+            }
+        },
+     {"model": "arstagramapi.mood",
+            "pk": 6,
+                "fields": {
+                "mood_type":"Chill"
+            }
+        },
+    {"model": "arstagramapi.mood",
+            "pk": 7,
+                "fields": {
+                "mood_type":"Sparkly"
+            }
+        },
+    {"model": "arstagramapi.mood",
+            "pk": 8,
+                "fields": {
+                "mood_type":"Jazzy"
+            }
+        },
+     {"model": "arstagramapi.mood",
+            "pk": 9,
+                "fields": {
+                "mood_type":"Hungry"
+            }
+        },
+    {"model": "arstagramapi.mood",
+            "pk": 10,
+                "fields": {
+                "mood_type":"Inspired"
+            }
+        }
+ ]

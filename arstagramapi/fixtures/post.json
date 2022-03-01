@@ -1,0 +1,16 @@
+[
+    {
+        "model": "arstagramapi.post",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "mood": 1,
+            "material": 2,
+            "title": "Sunny Sky",
+            "publication_date": "2022-02-15",
+            "image_url": "https://ctl.s6img.com/society6/img/ktLY5UD1EjGuQeeA8Gb_JuDZtzc/w_700/prints/~artwork/s6-original-art-uploads/society6/uploads/misc/f90bdd2fce144433a17cd1ea6f1c535b/~~/sunny-landscape1965534-prints.jpg?wait=0&attempt=0",
+            "notes": "I like this but is there too much yellow?",
+            "private": false
+        }
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {"model": "arstagramapi.medium",
+     "pk": 1,
+         "fields": {
+         "name":"Watercolor"
+     }
+     },
+     
+     {"model": "arstagramapi.medium",
+        "pk": 2,
+            "fields": {
+            "name":"Acrylic"
+        }
+        },
+
+     {"model": "arstagramapi.medium",
+        "pk": 3,
+            "fields": {
+            "name":"Pen and Ink"
+        }
+        },
+
+     {"model": "arstagramapi.medium",
+        "pk": 4,
+            "fields": {
+            "name":"Oil Paint"
+        }
+        },
+
+    {"model": "arstagramapi.medium",
+            "pk": 5,
+                "fields": {
+                "name":"Charcoal"
+            }
+        },
+     {"model": "arstagramapi.medium",
+            "pk": 6,
+                "fields": {
+                "name":"Gauche"
+            }
+        }
+ ]
