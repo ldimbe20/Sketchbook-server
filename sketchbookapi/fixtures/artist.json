@@ -1,0 +1,9 @@
+[
+    {"model": "sketchbookapi.artist",
+     "pk": 1,
+         "fields": {
+        "user":1,
+         "bio":"I am just starting out painting and need some help"   
+     }
+     }
+ ]

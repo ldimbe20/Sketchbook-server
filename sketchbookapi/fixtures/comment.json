@@ -1,5 +1,5 @@
 [
-    {"model": "arstagramapi.comment",
+    {"model": "sketchbookapi.comment",
      "pk": 1,
          "fields": {
          "post":1,

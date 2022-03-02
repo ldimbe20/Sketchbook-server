@@ -1,7 +1,7 @@
 {
     "python.linting.pylintArgs": [
         "--load-plugins=pylint_django",
-        "--django-settings-module=arstagram.settings",
+        "--django-settings-module=sketchbook.settings",
     ],
    
     "python.linting.pylintEnabled": true,
