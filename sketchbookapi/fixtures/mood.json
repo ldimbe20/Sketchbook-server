@@ -1,63 +1,63 @@
 [
-    {"model": "arstagramapi.mood",
+    {"model": "sketchbookapi.mood",
      "pk": 1,
          "fields": {
          "mood_type":"Happy"
      }
      },
      
-     {"model": "arstagramapi.mood",
+     {"model": "sketchbookapi.mood",
         "pk": 2,
             "fields": {
             "mood_type":"Sad"
         }
         },
 
-     {"model": "arstagramapi.mood",
+     {"model": "sketchbookapi.mood",
         "pk": 3,
             "fields": {
-            "name":"Mad"
+            "mood_type":"Mad"
         }
         },
 
-     {"model": "arstagramapi.mood",
+     {"model": "sketchbookapi.mood",
         "pk": 4,
             "fields": {
-            "name":"Frustrated"
+            "mood_type":"Frustrated"
         }
         },
 
-    {"model": "arstagramapi.mood",
+    {"model": "sketchbookapi.mood",
             "pk": 5,
                 "fields": {
                 "mood_type":"Excited"
             }
         },
-     {"model": "arstagramapi.mood",
+     {"model": "sketchbookapi.mood",
             "pk": 6,
                 "fields": {
                 "mood_type":"Chill"
             }
         },
-    {"model": "arstagramapi.mood",
+    {"model": "sketchbookapi.mood",
             "pk": 7,
                 "fields": {
                 "mood_type":"Sparkly"
             }
         },
-    {"model": "arstagramapi.mood",
+    {"model": "sketchbookapi.mood",
             "pk": 8,
                 "fields": {
                 "mood_type":"Jazzy"
             }
         },
-     {"model": "arstagramapi.mood",
+     {"model": "sketchbookapi.mood",
             "pk": 9,
                 "fields": {
                 "mood_type":"Hungry"
             }
         },
-    {"model": "arstagramapi.mood",
+    {"model": "sketchbookapi.mood",
             "pk": 10,
                 "fields": {
                 "mood_type":"Inspired"

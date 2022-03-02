@@ -1,39 +1,39 @@
 [
-    {"model": "arstagramapi.medium",
+    {"model": "sketchbookapi.medium",
      "pk": 1,
          "fields": {
          "name":"Watercolor"
      }
      },
      
-     {"model": "arstagramapi.medium",
+     {"model": "sketchbookapi.medium",
         "pk": 2,
             "fields": {
             "name":"Acrylic"
         }
         },
 
-     {"model": "arstagramapi.medium",
+     {"model": "sketchbookapi.medium",
         "pk": 3,
             "fields": {
             "name":"Pen and Ink"
         }
         },
 
-     {"model": "arstagramapi.medium",
+     {"model": "sketchbookapi.medium",
         "pk": 4,
             "fields": {
             "name":"Oil Paint"
         }
         },
 
-    {"model": "arstagramapi.medium",
+    {"model": "sketchbookapi.medium",
             "pk": 5,
                 "fields": {
                 "name":"Charcoal"
             }
         },
-     {"model": "arstagramapi.medium",
+     {"model": "sketchbookapi.medium",
             "pk": 6,
                 "fields": {
                 "name":"Gauche"

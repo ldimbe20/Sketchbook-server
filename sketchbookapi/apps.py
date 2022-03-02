@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ArstagramapiConfig(AppConfig):
+class SketchbookapiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'arstagramapi'
+    name = 'sketchbookapi'

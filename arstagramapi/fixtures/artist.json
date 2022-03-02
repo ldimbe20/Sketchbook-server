@@ -1,9 +1,0 @@
-[
-    {"model": "arstagramapi.artist",
-     "pk": 1,
-         "fields": {
-         "bio":"I am just starting out painting and need some help",
-         "user":1
-     }
-     }
- ]
