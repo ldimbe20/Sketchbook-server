@@ -1,0 +1,9 @@
+[
+    {"model": "sketchbookapi.MediumPost",
+     "pk": 1,
+         "fields": {
+         "medium":1,
+         "post":1
+     }
+     }
+ ]
