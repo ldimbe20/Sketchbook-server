@@ -1,6 +1,4 @@
 from sketchbookapi.models import Post
-from sketchbookapi.models import MediumPost
-from sketchbookapi.models import Medium
 from sketchbookapi.models import Artist
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
