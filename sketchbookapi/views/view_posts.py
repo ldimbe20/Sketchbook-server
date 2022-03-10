@@ -5,6 +5,8 @@ from sketchbookapi.models import Artist
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 from sketchbookapi.serializers import PostSerializer
+from rest_framework.exceptions import ValidationError
+from rest_framework import status
  
  
 class PostView(ViewSet):
@@ -16,28 +18,44 @@ class PostView(ViewSet):
         return Response(serializer.data)
     
  
-#     def create(self, request):
-#         """Create a new post"""
-#         #! grabbing post object where seller =request.auth.user
-#         artist = Artist.objects.get(user=request.auth.user)
-#         #! grabbing medium object that is also needed 
-#         medium_post = MediumPost.objects.get(pk=request.data['mediumPostId'])
+    def create(self, request):
+        """Create a new post"""
+        #! grabbing post object where seller =request.auth.user
+        user = Artist.objects.get(user=request.auth.user)
+        #! grabbing medium object that is also needed 
+        # mediums_used = MediumPost.objects.get(mediums_used=True)
+        # mediums_used = MediumPost.objects.all(pk=request.data['medium_id'])
         
-#         try:
-#             product = Product.objects.create(
-#                 name=request.data['name'],
-#                 # grabbing post information from above
-#                 price=request.data['price'],
-#                 description=request.data['description'],
-#                 quantity=request.data['quantity'],
-#                 location=request.data['location'],
-#                 # adding medium information from above
-#                 medium_post=medium_post
-#             )
-#             serializer = ProductSerializer(product)
-#             # need to make a serializer to create json out of dictionary object
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#  # !!! when would the except run? I tried filling this out client-side ommiting data and it still creates and object
-#         except ValidationError as ex:
-#             return Response({'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
+         
+        
+      
+        post = Post.objects.create(
+                mood_id=request.data['mood'],
+                # grabbing post information from above
+                title=request.data['title'],
+                publication_date=request.data['publication_date'],
+                image_url=request.data['image_url'],
+                notes=request.data['notes'],
+                private=request.data['private'],
+                user = user
+            )
+            
+        try:
+            post.mediums_used.set(request.data['mediums_used'])
+              
+              
+            # post.save()
+                
+            # for mediums_used in request.data['mediums_used']:
+            #     mediums_used = MediumPost.objects.get(mediums_used = mediums_used['medium_id'])
+            #     post.mediums_used.add(mediums_used)
+                
+            
+            
+            serializer = PostSerializer(post)
+            # need to make a serializer to create json out of dictionary object
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+ 
+        except ValidationError as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
          
