@@ -5,11 +5,12 @@ from sketchbookapi.views import register_user, login_user
 from rest_framework import routers
 from sketchbookapi.views import PostView
 from sketchbookapi.views import MediumView
-
+from sketchbookapi.views import MoodView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'posts', PostView, 'post')
 router.register(r'mediums', MediumView, 'medium')
+router.register(r'moods', MoodView, 'mood')
 urlpatterns = [
     
     path('register', register_user),

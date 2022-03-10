@@ -6,4 +6,4 @@ class MediumSerializer(serializers.ModelSerializer):
     class Meta:
         model = Medium
         fields = ('id', 'name')
-        depth = 2
+        
