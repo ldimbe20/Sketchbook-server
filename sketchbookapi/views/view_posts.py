@@ -22,12 +22,6 @@ class PostView(ViewSet):
         """Create a new post"""
         #! grabbing post object where seller =request.auth.user
         user = Artist.objects.get(user=request.auth.user)
-        #! grabbing medium object that is also needed 
-        # mediums_used = MediumPost.objects.get(mediums_used=True)
-        # mediums_used = MediumPost.objects.all(pk=request.data['medium_id'])
-        
-         
-        
       
         post = Post.objects.create(
                 mood_id=request.data['mood'],
@@ -39,18 +33,10 @@ class PostView(ViewSet):
                 private=request.data['private'],
                 user = user
             )
-            
+        # ! would like to know exactly what is going on here...I know below is a many to many field   
         try:
             post.mediums_used.set(request.data['mediums_used'])
               
-              
-            # post.save()
-                
-            # for mediums_used in request.data['mediums_used']:
-            #     mediums_used = MediumPost.objects.get(mediums_used = mediums_used['medium_id'])
-            #     post.mediums_used.add(mediums_used)
-                
-            
             
             serializer = PostSerializer(post)
             # need to make a serializer to create json out of dictionary object
