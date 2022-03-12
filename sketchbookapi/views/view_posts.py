@@ -22,7 +22,7 @@ class PostView(ViewSet):
         user = Artist.objects.get(user=request.auth.user)
       
         post = Post.objects.create(
-                mood_id=request.data['mood'],
+                mood_id=request.data['mood_id'],
                 # grabbing post information from above
                 title=request.data['title'],
                 publication_date=request.data['publication_date'],

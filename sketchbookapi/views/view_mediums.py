@@ -17,27 +17,19 @@ class MediumView(ViewSet):
         serializer = MediumSerializer(medium, many=True)
         return Response(serializer.data)
     
-    # def create(self, request):
-    #     """Create a new post"""
+    def create(self, request):
+        """Create a new post"""
       
-    #     post = Post.objects.create(
-    #             mood_id=request.data['mood'],
-    #             # grabbing post information from above
-    #             title=request.data['title'],
-    #             publication_date=request.data['publication_date'],
-    #             image_url=request.data['image_url'],
-    #             notes=request.data['notes'],
-    #             private=request.data['private'],
-    #             user = user
-    #         )
-    #     # ! would like to know exactly what is going on here...I know below is a many to many field   
-    #     try:
-    #         post.mediums_used.set(request.data['mediums_used'])
-              
-            
-    #         serializer = PostSerializer(post)
-    #         # need to make a serializer to create json out of dictionary object
-    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
+        medium = Medium.objects.create(
+                name=request.data['name'],
+                # grabbing post information from above
+
+            )
+       
+        try:
+            serializer = MediumSerializer(medium)
+            # need to make a serializer to create json out of dictionary object
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
  
-    #     except ValidationError as ex:
-    #         return Response({'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
+        except ValidationError as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
