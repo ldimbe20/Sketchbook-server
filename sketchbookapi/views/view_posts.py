@@ -1,8 +1,8 @@
-from sketchbookapi.models import Post
-from sketchbookapi.models import Artist
+from sketchbookapi.models import Post, Mood, Artist
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 from sketchbookapi.serializers import PostSerializer
+from sketchbookapi.serializers import CreatePostSerializer
 from rest_framework.exceptions import ValidationError
 from rest_framework import status
  
@@ -17,7 +17,7 @@ class PostView(ViewSet):
     
  
     def create(self, request):
-        """Create a new post"""
+        """Create a new put"""
         #! grabbing post object where seller =request.auth.user
         user = Artist.objects.get(user=request.auth.user)
       
@@ -42,4 +42,29 @@ class PostView(ViewSet):
  
         except ValidationError as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
-         
+        
+        
+    def destroy(self, request, pk):
+        """Delete a post, current user must be associated with the post to be deleted
+        """
+        try:
+            post = Post.objects.get(pk=pk)
+            post.delete()
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+        except Post.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+        
+    def update(self, request, pk):
+        """Handle PUT requests for a game
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+
+        post = Post.objects.get(pk=pk)
+        serializer = CreatePostSerializer(post, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+
