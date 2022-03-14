@@ -15,10 +15,16 @@ class PostView(ViewSet):
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
     
+    def retrieve(self, request, pk):
+        """Get a list of all post"""
+        posts = Post.objects.get(pk=pk)
+        serializer = PostSerializer(posts)
+        return Response(serializer.data)
+    
  
     def create(self, request):
         """Create a new put"""
-        #! grabbing post object where seller =request.auth.user
+     
         user = Artist.objects.get(user=request.auth.user)
       
         post = Post.objects.create(
