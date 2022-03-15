@@ -23,6 +23,16 @@ class CommentView(ViewSet):
         serializer = CommentSerializer(comment)
         return Response(serializer.data)
     
+    def destroy(self, request, pk):
+        """Delete a post, current user must be associated with the post to be deleted
+        """
+        try:
+            post = Comment.objects.get(pk=pk)
+            post.delete()
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+        except Post.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+    
     def create(self, request):
         """Create a new comment"""
         
@@ -32,7 +42,6 @@ class CommentView(ViewSet):
         comment = Comment.objects.create(
                 post_id=request.data['post_id'],
                 content=request.data['content'],
-                created_on=request.data['created_on'],
                 user = user,
                 # post = post,
                 # grabbing post information from above
