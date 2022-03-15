@@ -1,7 +1,7 @@
 [
     {
         "model": "sketchbookapi.post",
-        "pk": 1,
+        "pk": 50,
         "fields": {
             "user": 1,
             "mood": 1,

@@ -2,7 +2,6 @@ from sketchbookapi.models import Post, Mood, Artist
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 from sketchbookapi.serializers import PostSerializer
-from sketchbookapi.serializers import CreatePostSerializer
 from rest_framework.exceptions import ValidationError
 from rest_framework import status
  
@@ -16,7 +15,7 @@ class PostView(ViewSet):
         return Response(serializer.data)
     
     def retrieve(self, request, pk):
-        """Get a list of all post"""
+        """Get a post"""
         posts = Post.objects.get(pk=pk)
         serializer = PostSerializer(posts)
         return Response(serializer.data)
@@ -68,7 +67,7 @@ class PostView(ViewSet):
         """
 
         post = Post.objects.get(pk=pk)
-        serializer = CreatePostSerializer(post, data=request.data)
+        serializer = PostSerializer(post, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
