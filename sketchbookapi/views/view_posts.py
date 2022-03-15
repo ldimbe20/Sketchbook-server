@@ -4,6 +4,7 @@ from rest_framework.viewsets import ViewSet
 from sketchbookapi.serializers import PostSerializer
 from rest_framework.exceptions import ValidationError
 from rest_framework import status
+from rest_framework.decorators import action
  
  
 class PostView(ViewSet):
@@ -35,8 +36,7 @@ class PostView(ViewSet):
                 notes=request.data['notes'],
                 private=request.data['private'],
                 user = user
-            )
-        # ! would like to know exactly what is going on here...I know below is a many to many field   
+            )   
         try:
             post.mediums_used.set(request.data['mediums_used'])
               
@@ -72,4 +72,14 @@ class PostView(ViewSet):
         serializer.save()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
+
+    @action(methods=['get'], detail=False)
+    #@action turns method into new route, signup, in url. 
+    def currentUser(self, request):
+        """Post request for a user to sign up for an event"""
+        post = Post.objects.get(user=request.auth.user) 
+        
+        serializer = PostSerializer(post)
+        return Response(serializer.data)
+    
 
