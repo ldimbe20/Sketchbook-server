@@ -2,8 +2,8 @@
     {"model": "sketchbookapi.comment",
      "pk": 1,
          "fields": {
-         "post":1,
-         "author":1,
+         "post":50,
+         "user":1,
          "content": "Try adding more white to the pink",
          "created_on":"2020-01-12"
      }
