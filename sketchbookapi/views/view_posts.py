@@ -5,6 +5,10 @@ from sketchbookapi.serializers import PostSerializer
 from rest_framework.exceptions import ValidationError
 from rest_framework import status
 from rest_framework.decorators import action
+import base64
+import uuid
+from django.core.files.base import ContentFile
+
  
  
 class PostView(ViewSet):
@@ -26,19 +30,31 @@ class PostView(ViewSet):
         """Create a new put"""
      
         user = Artist.objects.get(user=request.auth.user)
+        
+    
+        format, imgstr = request.data["image_url"].split(';base64,')
+        ext = format.split('/')[-1]
+        imgdata = ContentFile(base64.b64decode(imgstr), name=f'{request.data["title"]}-{uuid.uuid4()}.{ext}')
+        
+        
       
         post = Post.objects.create(
                 mood_id=request.data['mood_id'],
                 # grabbing post information from above
                 title=request.data['title'],
                 publication_date=request.data['publication_date'],
-                image_url=request.data['image_url'],
+                image_url=imgdata,
                 notes=request.data['notes'],
                 private=request.data['private'],
                 user = user
+                
             )   
         try:
             post.mediums_used.set(request.data['mediums_used'])
+         
+            
+            
+            
               
             
             serializer = PostSerializer(post)

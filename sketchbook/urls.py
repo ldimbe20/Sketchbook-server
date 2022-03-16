@@ -8,6 +8,7 @@ from sketchbookapi.views import MediumView
 from sketchbookapi.views import MoodView
 from sketchbookapi.views import CommentView
 from sketchbookapi.views import ArtistView
+from django.conf.urls.static import static, settings
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'posts', PostView, 'post')
@@ -22,6 +23,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
        
-] 
-
-# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
