@@ -6,12 +6,12 @@ class Post(models.Model):
     mediums_used = models.ManyToManyField("medium", through="MediumPost", related_name="mediums_used")
     title = models.CharField(max_length=120)
     publication_date = models.DateField(auto_now_add=True)
-    image_url = models.URLField()
+    image_url = models.ImageField(
+        upload_to='actionimages', height_field=None,
+        width_field=None, max_length=None, null=True)
     notes = models.CharField(max_length=1000)
     private = models.BooleanField()
     
-    # artwork_pic = models.ImageField(
-    #     upload_to='artwork', height_field=None,
-    #     width_field=None, max_length=None, null=True)
+    
    
    
