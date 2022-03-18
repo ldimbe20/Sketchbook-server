@@ -15,9 +15,12 @@ class PostView(ViewSet):
     
     def list(self, request):
         """Get a list of all post"""
-        posts = Post.objects.all()
+        posts = Post.objects.all().order_by('publication_date')
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
+    
+    
+   
     
     def retrieve(self, request, pk):
         """Get a post"""
@@ -51,12 +54,7 @@ class PostView(ViewSet):
             )   
         try:
             post.mediums_used.set(request.data['mediums_used'])
-         
-            
-            
-            
-              
-            
+             
             serializer = PostSerializer(post)
             # need to make a serializer to create json out of dictionary object
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -75,12 +73,18 @@ class PostView(ViewSet):
         except Post.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         
-    def update(self, request, pk):
+    def update(self, request, pk): 
         """Handle PUT requests for a game
 
         Returns:
             Response -- Empty body with 204 status code
         """
+        
+        # format, imgstr = request.data["image_url"].split(';base64,')
+        # ext = format.split('/')[-1]
+        # imgdata = ContentFile(base64.b64decode(imgstr), name=f'{request.data["title"]}-{uuid.uuid4()}.{ext}')
+        
+        
 
         post = Post.objects.get(pk=pk)
         serializer = PostSerializer(post, data=request.data)
@@ -95,7 +99,7 @@ class PostView(ViewSet):
         """Post request for a user to sign up for an event"""
         post = Post.objects.get(user=request.auth.user) 
         
-        serializer = PostSerializer(post)
+        serializer = UpdatePostSerializer(post)
         return Response(serializer.data)
     
 
