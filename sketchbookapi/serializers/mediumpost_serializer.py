@@ -6,4 +6,5 @@ class MediumPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = MediumPost
         fields = ('__all__')
+        depth = 2
         

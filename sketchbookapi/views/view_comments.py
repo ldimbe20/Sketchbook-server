@@ -43,9 +43,6 @@ class CommentView(ViewSet):
                 post_id=request.data['post_id'],
                 content=request.data['content'],
                 user = user,
-                # post = post,
-                # grabbing post information from above
-
             )
     
         try:
