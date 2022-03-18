@@ -16,8 +16,15 @@ class PostView(ViewSet):
     def list(self, request):
         """Get a list of all post"""
         posts = Post.objects.all()
+        mood_id = request.query_params.get('mood_id', None)
+        
+    
+        if mood_id is not None:
+            posts = posts.filter(mood_id=mood_id)
+    
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
+    
     
     def retrieve(self, request, pk):
         """Get a post"""
@@ -98,4 +105,7 @@ class PostView(ViewSet):
         serializer = PostSerializer(post)
         return Response(serializer.data)
     
+    
+    
+      
 
