@@ -17,10 +17,17 @@ class PostView(ViewSet):
         """Get a list of all post"""
         posts = Post.objects.all()
         mood_id = request.query_params.get('mood_id', None)
+        user_id = request.query_params.get('user_id', None)
+        # mediums_used = request.query_params.get('mediums_used', None)
         
+        # if mediums_used is not None:
+        #     posts = posts.filter(medium_used, many=True)
     
         if mood_id is not None:
             posts = posts.filter(mood_id=mood_id)
+            
+        if user_id is not None:
+            posts = posts.filter(user_id=user_id)
     
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
