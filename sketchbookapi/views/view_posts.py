@@ -1,4 +1,4 @@
-from sketchbookapi.models import Post, Mood, Artist
+from sketchbookapi.models import Post, Comment, Artist
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 from sketchbookapi.serializers import PostSerializer
@@ -16,16 +16,16 @@ class PostView(ViewSet):
     
     def list(self, request):
         """Get a list of all post"""
-        posts = Post.objects.all().order_by('-publication_date')
+        posts = Post.objects.all().order_by('publication_date')
         mood_id = request.query_params.get('mood_id', None)
         user_id = request.query_params.get('user_id', None)
         title = self.request.query_params.get('q', None)
+        
         
         # creating filters by querying the database with above. Request.query_params is a dictionary of any query parameters that were in the url
         # we are checking for mood_id or user_id, if they are not none then they will return the posts by what is queried.
         if title is not None:
             posts = posts.filter(title__icontains=f"{title}")
-    
     
         if mood_id is not None:
             posts = posts.filter(mood_id=mood_id)

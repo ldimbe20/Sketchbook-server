@@ -13,9 +13,14 @@ class CommentView(ViewSet):
     
     def list(self, request):
         """Get a list of all comments"""
-        comment = Comment.objects.all()
+        comments = Comment.objects.all()
+        post_id = request.query_params.get('postId', None)
         # Making query to gather all info from comments
-        serializer = CommentSerializer(comment, many=True)
+        
+        if post_id is not None:
+            comments = comments.filter(post_id=post_id)
+        
+        serializer = CommentSerializer(comments, many=True)
          # Serializer represents how the python data will be returned to client- We are gathering all the comments data here with many equals true
         # Created a folder of serializers to make data clearer to read this also represents encapsulation 
         return Response(serializer.data)
