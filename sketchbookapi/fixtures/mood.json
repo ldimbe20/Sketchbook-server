@@ -48,7 +48,7 @@
     {"model": "sketchbookapi.mood",
             "pk": 8,
                 "fields": {
-                "mood_type":"Jazzy"
+                "mood_type":"Curious"
             }
         },
      {"model": "sketchbookapi.mood",
