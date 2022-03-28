@@ -1,5 +1,5 @@
 ## APPLICATION OVERVIEW:
-Sketchbook is an application designed for artists to showcase thier work and get feedback. I was inspired to create this application when I was trying to learn to use watercolor paints. I really wanted a resource to get feedback on the pieces I created so ended up creating Sketchbook to do just that.
+Sketchbook is an application designed for artists to showcase their work and get feedback. I was inspired to create this application when I was trying to learn to use watercolor paints. I really wanted a resource to get feedback on the pieces I created so ended up creating Sketchbook to do just that.
 
 ## PRIMARY FEATURES:
 The user can register and login with an email and a password.
