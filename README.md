@@ -13,6 +13,7 @@ The user can navigate to resource route and see art resources
 ## GETTING STARTED:
 
 ## Clone this repository and change to the workspace directory in the terminal
+git@github.com:ldimbe20/Sketchbook-server.git
 Run pipenv shell
 Run pipenv install
 
@@ -20,4 +21,8 @@ Now that your database is set up all you have to do is run the command:
 
 python manage.py runserver
 
-Create own user or login into registered user using username Lauren password me
+## Access Client-side:
+
+ACCESS THE Clientside-click link follow README https://github.com/ldimbe20/Sketchbook-Client
+
+
