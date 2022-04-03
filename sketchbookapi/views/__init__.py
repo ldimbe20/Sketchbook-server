@@ -5,3 +5,4 @@ from .view_moods import MoodView
 from .view_comments import CommentView
 from .view_artists import ArtistView
 from .view_mediums_post import MediumPostView
+from .view_checklist import ChecklistView
