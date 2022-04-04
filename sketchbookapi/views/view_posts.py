@@ -16,7 +16,7 @@ class PostView(ViewSet):
     
     def list(self, request):
         """Get a list of all post"""
-        posts = Post.objects.all().order_by('publication_date')
+        posts = Post.objects.all().order_by('-publication_date')
         mood_id = request.query_params.get('mood_id', None)
         user_id = request.query_params.get('user_id', None)
         title = self.request.query_params.get('q', None)

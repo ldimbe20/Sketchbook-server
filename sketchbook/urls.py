@@ -9,6 +9,7 @@ from sketchbookapi.views import MoodView
 from sketchbookapi.views import CommentView
 from sketchbookapi.views import ArtistView
 from sketchbookapi.views import MediumPostView
+from sketchbookapi.views import ChecklistView
 from django.conf.urls.static import static, settings
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -18,6 +19,7 @@ router.register(r'moods', MoodView, 'mood')
 router.register(r'comments', CommentView, 'comment')
 router.register(r'artists', ArtistView, 'artist')
 router.register(r'mediumposts', MediumPostView, 'mediumpost')
+router.register(r'checklists', ChecklistView, 'checklist')
 urlpatterns = [
     
     path('register', register_user),
