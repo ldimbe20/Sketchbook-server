@@ -23,10 +23,13 @@ class ChecklistView(ViewSet):
         return Response(serializer.data)
     
     def retrieve(self, request, pk):
-        checklists=Checklist.object.get(pk=pk)
-        serializer = ChecklistSerializer(checklists)
-        return Response(serializer.data)
-    
+        try:
+             checklists=Checklist.objects.get(pk=pk)
+             serializer = ChecklistSerializer(checklists)
+             return Response(serializer.data)
+        except Checklist.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+            
     def create(self, request):
         """Create a new put"""
         user = Artist.objects.get(user=request.auth.user)
@@ -51,7 +54,11 @@ class ChecklistView(ViewSet):
             return Response({'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
     
     
-   
+    def destroy(self, request, pk):
+        checklists = Checklist.objects.get(pk=pk)
+        checklists.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+        
                 
         
         
