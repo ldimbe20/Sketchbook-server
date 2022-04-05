@@ -13,6 +13,8 @@ from sketchbookapi.views import ChecklistView
 from django.conf.urls.static import static, settings
 
 router = routers.DefaultRouter(trailing_slash=False)
+# The trailing_slash=False tells the router to accept /gametypes instead of /gametypes/. It’s a very annoying error to come across, when your 
+# server is not responding and the code looks right, the only issue is your fetch url is missing a / at the end.
 router.register(r'posts', PostView, 'post')
 router.register(r'mediums', MediumView, 'medium')
 router.register(r'moods', MoodView, 'mood')
