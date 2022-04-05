@@ -10,4 +10,12 @@ class PostSerializer(serializers.ModelSerializer):
         depth = 2
         
 
+class UpdatePostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = ('id', 'user', 'mediums_used', 'title', 'publication_date', 'notes', 'private', 'mood')
+        depth = 2
+        
+        
+
 
