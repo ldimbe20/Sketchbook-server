@@ -1,0 +1,20 @@
+[
+    {"model": "sketchbookapi.checklist",
+     "pk": 1,
+         "fields": {
+         "user":1,
+         "title":"New Inspiration",
+         "publication_date": "2022-02-15",
+         "image_url":"https://i.pinimg.com/originals/10/d4/17/10d4177c2ffab77fe4f44a021bdd605b.jpg",
+         "task": "I want to do an illustration using the colors from above"
+     }
+     }
+ ]
+
+
+
+
+
+
+
+
