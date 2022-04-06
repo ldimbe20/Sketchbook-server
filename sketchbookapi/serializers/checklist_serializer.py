@@ -6,7 +6,7 @@ class ChecklistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Checklist
         fields = ('__all__')
-        depth = 2
+        depth = 1
         
 class CreateChecklistSerializer(serializers.ModelSerializer):
     class Meta:
