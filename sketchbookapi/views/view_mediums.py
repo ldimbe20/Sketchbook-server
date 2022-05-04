@@ -31,14 +31,7 @@ class MediumView(ViewSet):
         except ValidationError as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_400_BAD_REQUEST)
     
-    def retrieve(self, request, pk):
-        """Get a medium"""
-        medium = Medium.objects.get(pk=pk)
-        serializer = MediumSerializer(medium)
-        return Response(serializer.data)
-    
-     
-     
+   
         
     def destroy(self, request, pk):
         """Delete a medium, current user must be associated with the medium to be deleted

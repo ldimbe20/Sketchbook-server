@@ -2,7 +2,7 @@ from email.mime import image
 from sketchbookapi.models import Checklist, Artist
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
-from sketchbookapi.serializers import ChecklistSerializer, CreateChecklistSerializer
+from sketchbookapi.serializers import ChecklistSerializer
 from rest_framework.exceptions import ValidationError
 from rest_framework import status
 from rest_framework.decorators import action
@@ -46,7 +46,7 @@ class ChecklistView(ViewSet):
         )
         
         try:
-            serializer = CreateChecklistSerializer(checklist)
+            serializer = ChecklistSerializer(checklist)
                 # need to make a serializer to create json out of dictionary object
             return Response(serializer.data, status=status.HTTP_201_CREATED)
             #if some information isn't presented below response will be sent out

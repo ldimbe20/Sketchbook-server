@@ -49,7 +49,7 @@ class CommentView(ViewSet):
         """Create a new comment"""
         
         user = Artist.objects.get(user=request.auth.user)
-        # Need to add foriegn key artists object to create new post
+        # Need to add foreign key artists object to create new post
       
         comment = Comment.objects.create(
                 post_id=request.data['post_id'],
