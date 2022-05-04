@@ -31,6 +31,7 @@ class PostView(ViewSet):
         if mood_id is not None:
             posts = posts.filter(mood_id=mood_id)
             
+            
         if user_id is not None:
             posts = posts.filter(user_id=user_id)
     
