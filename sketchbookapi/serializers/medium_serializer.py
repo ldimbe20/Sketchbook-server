@@ -7,4 +7,3 @@ class MediumSerializer(serializers.ModelSerializer):
         model = Medium
         fields = ('id', 'name')
         depth=2
-        

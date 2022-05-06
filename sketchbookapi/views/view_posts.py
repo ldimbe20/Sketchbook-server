@@ -21,8 +21,6 @@ class PostView(ViewSet):
         mood_id = request.query_params.get('mood_id', None)
         user_id = request.query_params.get('user_id', None)
         title = self.request.query_params.get('q', None)
-        
-        
         # creating filters by querying the database with above. Request.query_params is a dictionary of any query parameters that were in the url
         # we are checking for mood_id or user_id, if they are not none then they will return the posts by what is queried.
         if title is not None:
@@ -97,17 +95,11 @@ class PostView(ViewSet):
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
         
     def update(self, request, pk): 
-        """Handle PUT requests for a game
+        """Handle PUT requests for a post
 
         Returns:
             Response -- Empty body with 204 status code
         """
-        
-        # format, imgstr = request.data["image_url"].split(';base64,')
-        # ext = format.split('/')[-1]
-        # imgdata = ContentFile(base64.b64decode(imgstr), name=f'{request.data["title"]}-{uuid.uuid4()}.{ext}')
-        
-        
 
         post = Post.objects.get(pk=pk)
         serializer = PostSerializer(post, data=request.data)
@@ -122,7 +114,7 @@ class PostView(ViewSet):
         """Post request for a user to sign up for an event"""
         post = Post.objects.get(user=request.auth.user) 
         
-        serializer = UpdatePostSerializer(post)
+        serializer = PostSerializer(post)
         return Response(serializer.data)
     
     
